@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>other</title>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <script src="/js/jquery.js"></script>
+    <script>
+        $.ajax({
+            url: "http://localhost:3000/getData",
+            type: "get",
+            data: {
+                type: "小屋快讯",
+            },
+            success: function (res) {
+                console.log(res)
+                // console.log(res.arr.length)
+                var html = ""
+                for (var i = 0; i < res.arr.length; i++) {
+                    html+=`${res.arr[i].simg}`
+                  
+                }
+               $(".wrap").html(html)
+            }
+        })
+    </script>
+</body>
+
+</html>
